@@ -59,13 +59,13 @@ function calculateGPA(){
     let marks=document.getElementById("marks").value;
     if (marks ===" ")return;
     let gpa =(marks/10).toFixed(2);
-document.getElementById("gpa").textContent="GPA:" +gpa;
+document.getElementById("gpa").innerText="GPA:" + gpa;
 }
 
 function updateStreak(){
     let streak=localStorage.getItem("streak")||0;
     streak++;
-    localStorage.setItem("streak").textContent=streak +" days";
+    localStorage.setItem("streak").innerText=streak +" days";
 
 }
 
