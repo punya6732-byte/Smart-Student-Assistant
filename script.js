@@ -1,3 +1,4 @@
+alert("JS WORKING");
 function addtask(){
     let task =document.getElementById("task").value;
     if (task ===" ") return;
