@@ -37,7 +37,8 @@ let words=[
 function newWord(){
     let random=Math.floor(Math.random()*words.length);
     let selected=words[random];
-    document.getElementById("koreanWord").innerHTML="<b>"+ selected.word +"</b><br>"+ selected.meaning +"<br><i>"+ selected.sentence +"</i>";
+    let text=selected.word + "-" + selected.meaning + "(" + selected.sentence + ")";
+    document.getElementById("koreanWord").innerText=text;
 
 }
 
