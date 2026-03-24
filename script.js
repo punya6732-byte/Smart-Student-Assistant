@@ -64,7 +64,7 @@ document.getElementById("gpa").innerText="GPA:" + gpa;
 
 function updateStreak(){
   let streak=parseInt(localStorage.getItem("streak"))||0;
-  streak=streak + 1;
+  streak++;
 
   localStorage.setItem("streak",streak);
 
@@ -72,7 +72,7 @@ function updateStreak(){
 
 }
 function getSuggestion(){
-    let tasks=JSON parse(localStorage.getItem("tasks"))||[];
+    let tasks=JSON. parse(localStorage.getItem("tasks"))||[];
     let streak=parseInt(localStorage.getItem("streak"))||0;
     let marks=document.getElementById ("marks").value;
 let message="";
