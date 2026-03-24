@@ -63,13 +63,35 @@ document.getElementById("gpa").innerText="GPA:" + gpa;
 }
 
 function updateStreak(){
-    let streak=localStorage.getItem("streak")||0;
-    streak++;
-    localStorage.setItem("streak").innerText=streak +" days";
+  let streak=parseInt(localStorage.getItem("streak"))||0;
+  streak=streak + 1;
+
+  localStorage.setItem("streak",streak);
+
+  document.getElementById("streak").innerText=streak + "days";
 
 }
+function getSuggestion(){
+    let tasks=JSON parse(localStorage.getItem("tasks"))||[];
+    let streak=parseInt(localStorage.getItem("streak"))||0;
+    let marks=document.getElementById ("marks").value;
+let message="";
+if (tasks.length ===0){
+    message="You have no tasks.Start planning your study!";
+}
+else if (streak<2){
+    message="Be consistent! Try to study daily.";
+}
+else if(marks && marks <50){
+    message ="Your marks are low .Focus more on weak subjects.";
+}
+else{
+    message="You are doing well,Stay consistent!";
+}
+document.getElementById("suggestion").innerText=message;
+}
 
-window.onlosd=function(){
+window.onload=function(){
     let tasks=JSON.parse(localStorage.getItem("tasks"))||[];
     tasks.forEach(task=>{
         let li=document.createElement("li");
@@ -77,5 +99,6 @@ window.onlosd=function(){
         document.getElementById("taskList").appendChild(li);
 
     });
-    let streak=localStorage.getItem("streak").textContent=streak +" days";
+    let streak=parseInt(this.localStorage.getItem("streak"))||0;
+    this.document.getElementById("streak").innerText=streak +"days";
 };
