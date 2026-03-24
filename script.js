@@ -13,10 +13,31 @@ function saveTask(task){
     tasks.push(task);
     localStorage.setItem("tasks",JSON.stringify(tasks));
 }
-let words=["안녕하세요 (Hello)", "감사합니다 (Thank you)", "사랑해요 (I love you)", "공부 (Study)"];
+let words=[
+    { word: "안녕하세요",
+        meaning: "Hello",
+        sentence: "안녕하세요! 만나서 반갑습니다."
+    },
+    {
+        word: "감사합니다",
+        meaning: "Thank you",
+        sentence: "도와주셔서 감사합니다."
+    },
+    {
+        word: "공부",
+        meaning: "Study",
+        sentence: "나는 매일 공부합니다."
+    },
+    {
+        word: "학교",
+        meaning: "School",
+        sentence: "학교에 갑니다."
+    }
+];
 function newWord(){
     let random=Math.floor(Math.random()*words.length);
-    document.getElementById("koreanWord").textContent=words[random];
+    let selected=words[random];
+    document.getElementById("koreanWord").innerHTML="<b>"+selected.word +"</b><br>"+selected.meaning +"<br><i>"+selected.sentence+"</i>";
 
 }
 
